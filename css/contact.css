@@ -547,44 +547,33 @@ border:none;
     font-weight: 600;
 }
 
-/* --- MOBILE RESPONSIVE --- */
-@media (max-width: 1024px) {
-    .footer-cards {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .footer-card {
-        min-width: 45%; /* Tablets lo 2 cards side by side */
-    }
-}
-
 @media (max-width: 768px) {
     .footer-main {
         flex-direction: column;
-        padding: 40px 20px;
+        padding: 30px 20px; /* koncham reduce chesam */
         align-items: flex-start;
         text-align: left;
+        gap: 10px; /* sections madhya gap control */
+    }
+
+    .footer-links {
+        margin-bottom: 10px; /* earlier 30px → ippudu reduce */
     }
 
     .footer-cards {
         width: 100%;
         flex-direction: column;
-        gap: 15px;
+        gap: 10px; /* cards madhya gap kuda taggincham */
+        margin-top: 0; /* extra gap remove */
     }
 
     .footer-card {
         width: 100%;
-        height: auto; /* Mobile lo content ni batti height adjust avthundi */
-        min-height: 140px;
+        height: auto;
+        min-height: 120px; /* koncham compact */
         min-width: 100%;
     }
-
-    .footer-links {
-        margin-bottom: 30px;
-    }
 }
-
-
 
 
 
