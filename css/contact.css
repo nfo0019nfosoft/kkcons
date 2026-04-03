@@ -273,35 +273,41 @@ cursor:pointer;
 background:#0b6aa3;
 }
 
-/* MOBILE */
 @media(max-width:768px){
+
+.contact-section{
+    padding:20px 10px; /* 🔥 side padding reduce */
+}
 
 .contact-container{
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
 }
 
-/* Title center & clean */
-.contact-title{
-    font-size: 26px;
-    margin: 20px 0;
-    text-align: center;
-}
-
-/* Remove fixed height issue */
+/* FORM WIDTH BOOST */
 .contact-form{
     width: 100%;
-    height: auto;
+    max-width: 100%;
+    padding:20px; /* 40px → reduce so width feel ekkuva */
+    margin: 0 auto;
+    height:auto;
 }
 
-/* Cards full width */
-.contact-info{
-    width: 100%;
+/* INPUT FULL WIDTH CLEAN */
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:14px;
+}
+
+/* TITLE */
+.contact-title{
+    font-size:24px;
+    margin:15px 0;
+    text-align:center;
 }
 
 }
-
-
 
 
 
