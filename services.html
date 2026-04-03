@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <title>SERVICES &#8211; KK Constructions</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/services.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="nav-container">
+
+                <!-- LOGO -->
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="KK Constructions">
+                    </a>
+                </div>
+
+                <!-- MENU BUTTON -->
+                <div class="menu-toggle" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <!-- NAV LINKS -->
+                <ul class="nav-links" id="nav-links">
+
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT US</a></li>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <script>
+
+        const menuBtn = document.getElementById("menu-toggle");
+        const navLinks = document.getElementById("nav-links");
+
+        menuBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+    <section class="about-hero">
+
+        <div class="about-hero-container">
+
+            <h1>SERVICES</h1>
+
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="independent-section">
+
+        <div class="independent-container">
+
+            <div class="independent-text">
+
+                <h1>INDEPENDENT HOUSE</h1>
+
+                <h3>BUILD YOUR THOUGHTS</h3>
+
+                <p>
+                    An independent house refers to a standalone residential building that is not attached
+                    to any other structure. It is typically a single-family dwelling that stands alone on
+                    its own plot of land, providing privacy and autonomy to its occupants. Independent houses
+                    can vary in size, design, and style, ranging from small cottages to large estates.Typically,
+                    when you own an independent house, you also own the land on which the house is built. This
+                    gives you more control over your property. Independent houses offer a higher degree of privacy
+                    compared to multi-unit buildings like apartments or townhouses since there are no shared walls
+                    or common spaces with other residents.
+                </p>
+
+            </div>
+
+            <div class="independent-image" id="independentImage">
+
+                <img src="images/service1.png" alt="Independent House">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        function revealImage() {
+
+            let img = document.getElementById("independentImage");
+
+            let position = img.getBoundingClientRect().top;
+
+            let screenHeight = window.innerHeight;
+
+            if (position < screenHeight - 100) {
+                img.classList.add("show");
+            }
+
+        }
+
+        window.addEventListener("scroll", revealImage);
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Roboto:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <section class="apartment-section">
+
+        <div class="apartment-container">
+
+            <div class="apartment-text">
+
+                <h1>APARTMENTS</h1>
+
+                <h3>BUILD CAREER</h3>
+
+                <p>
+                    Apartments, also known as flats in some regions, are housing units within a larger
+                    building or complex that contains multiple such units. Unlike independent houses,
+                    apartments involve shared walls and common areas.Apartments are part of a large
+                    building or complex, and residents typically share walls with neighbors. Common areas
+                    such as hallways, staircases, and sometimes outdoor spaces are shared among residents.
+                    Apartments can be owned or rented. In some cases, residents purchase individual units,
+                    while in others, they lease the space from a property owner or management company.
+
+                </p>
+
+            </div>
+
+            <div class="apartment-image" id="apartmentImage">
+
+                <img src="images/service2.png" alt="Apartments">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        function revealApartment() {
+
+            let img = document.getElementById("apartmentImage");
+
+            let position = img.getBoundingClientRect().top;
+            let screenHeight = window.innerHeight;
+
+            if (position < screenHeight - 100) {
+                img.classList.add("show");
+            }
+
+        }
+
+        window.addEventListener("scroll", revealApartment);
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="interior-section">
+
+        <div class="interior-container">
+
+            <!-- TEXT LEFT -->
+            <div class="interior-text">
+
+                <h1>INTERIOR DESIGNS</h1>
+
+                <h3>MAKE CREATIVE</h3>
+
+                <p>
+                    Interior design is a multifaceted discipline that involves the art and science of
+                    enhancing the interior of a space to create a more aesthetically pleasing and functional
+                    environment. Interior designers work to improve the quality of spaces by considering aspects
+                    such as color schemes, furniture arrangement, lighting, materials, and overall spatial
+                    arrangements.Interior designers analyze and plan the use of space within a building. This
+                    includes the arrangement of furniture, the flow of people within the space, and the utilization
+                    of available square footage. Interior designers select and arrange furniture and accessories to
+                    enhance the functionality and aesthetics of a space. This involves choosing appropriate sizes,
+                    styles, and layouts to create a cohesive and harmonious design.
+                </p>
+
+            </div>
+
+            <!-- IMAGE RIGHT -->
+            <div class="interior-image" id="interiorImage">
+
+                <img src="images/service3.png" alt="Interior Design">
+
+            </div>
+
+        </div>
+
+    </section>
+    <script>
+
+        function revealInterior() {
+
+            let img = document.getElementById("interiorImage");
+
+            let position = img.getBoundingClientRect().top;
+            let screenHeight = window.innerHeight;
+
+            if (position < screenHeight - 100) {
+                img.classList.add("show");
+            }
+
+        }
+
+        window.addEventListener("scroll", revealInterior);
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Roboto:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <section class="civil-section">
+
+        <div class="civil-container">
+
+            <!-- TEXT -->
+            <div class="civil-text">
+
+                <h1>CIVIL SERVICES</h1>
+
+                <h3>AVAILABLE</h3>
+
+                <p>
+                    Civil engineering services encompass a wide range of professional activities related to
+                    the planning, design, construction, and maintenance of infrastructure projects. Civil
+                    engineers play a crucial role in shaping the physical environment and ensuring the safe
+                    and efficient functioning of communities. Civil engineers are involved in the planning of
+                    various types of infrastructure projects, including roads, bridges, tunnels, dams, airports,
+                    water supply systems, and sewage systems. They assess the feasibility, environmental impact,
+                    and cost-effectiveness of proposed projects. Civil engineers in this field work on projects
+                    related to water supply, water treatment, wastewater management, and flood control. They
+                    design systems to manage and distribute water resources effectively.
+                </p>
+
+            </div>
+
+            <!-- IMAGE -->
+            <div class="civil-image" id="civilImage">
+
+                <img src="images/service4.png" alt="Civil Work">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        function revealCivil() {
+
+            let img = document.getElementById("civilImage");
+
+            let position = img.getBoundingClientRect().top;
+            let screenHeight = window.innerHeight;
+
+            if (position < screenHeight - 100) {
+                img.classList.add("show");
+            }
+
+        }
+
+        window.addEventListener("scroll", revealCivil);
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+<footer class="footer">
+
+<div class="footer-main">
+
+<!-- LEFT LINKS -->
+
+<div class="footer-links">
+
+<h3>IMPORTANT LINKS</h3>
+
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li><a href="about.html">ABOUT US</a></li>
+<li><a href="services.html">SERVICES</a></li>
+<li><a href="contact.html">CONTACT US</a></li>
+</ul>
+
+</div>
+
+
+<!-- RIGHT CARDS -->
+
+<div class="footer-cards">
+
+<div class="footer-card">
+
+<div class="icon">
+<i class="fas fa-envelope"></i>
+</div>
+
+<h4>Info@kkcons.com</h4>
+
+<p>We reply within 24 hours</p>
+
+</div>
+
+
+<div class="footer-card">
+
+<div class="icon">
+<i class="fas fa-phone"></i>
+</div>
+
+<h4>Have any questions ?</h4>
+
+<p>+91 9666883345</p>
+
+</div>
+
+<div class="footer-card">
+
+<div class="icon">
+<i class="fas fa-map-marker-alt"></i>
+</div>
+
+<h4>Address</h4>
+
+<p>Hno.19-292, YSR colony, Badangpet, Hyderabad.</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- COPYRIGHT -->
+
+<div class="footer-bottom">
+
+<p>
+© All Copyrights Reserved KK Constructions 2024 |
+Designed By <span>nfoSoft Innovations</span>
+</p>
+
+</div>
+
+</footer>
+
+
+
+
+
+
+<div class="fl-contact-wrapper">
+    <div class="fl-item fl-phone">
+        <span class="fl-label">Call Us</span>
+        <a href="tel:+919666883345" class="fl-icon">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+
+    <div class="fl-item fl-whatsapp">
+        <span class="fl-label">WhatsApp Us</span>
+        <a href="https://wa.me/919666883345" target="_blank" class="fl-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+</div>
+
+
+
+
+
+

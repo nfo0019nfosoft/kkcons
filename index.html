@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<title>KK Constructions</title>
+
+<!-- CSS -->
+<link rel="stylesheet" href="css/index.css">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="images/logo.png">
+
+</head>
+<body>
+
+<header>
+
+<nav class="navbar">
+
+<div class="nav-container">
+
+<!-- LOGO -->
+<div class="logo">
+<a href="index.html">
+<img src="images/logo.png" alt="KK Constructions">
+</a>
+</div>
+
+<!-- MENU BUTTON -->
+<div class="menu-toggle" id="menu-toggle">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<!-- NAV LINKS -->
+<ul class="nav-links" id="nav-links">
+
+<li><a href="index.html">HOME</a></li>
+<li><a href="about.html">ABOUT US</a></li>
+<li><a href="services.html">SERVICES</a></li>
+<li><a href="contact.html">CONTACT US</a></li>
+
+</ul>
+
+</div>
+
+</nav>
+
+</header>
+
+<script>
+
+const menuBtn = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+menuBtn.addEventListener("click", () => {
+navLinks.classList.toggle("active");
+});
+
+</script>
+
+
+
+
+
+
+<section class="about-section">
+
+<div class="about-container">
+
+<!-- IMAGE -->
+<div class="about-image" id="aboutImage">
+<img src="images/about.png" alt="Construction">
+</div>
+
+<!-- CONTENT -->
+<div class="about-content">
+
+<h2>ABOUT US</h2>
+
+<p>
+KKconstructions is committed to being the most skilled builder, owned and led by the industry’s most skilled construction professionals. Our expertise and experience in Transportation, Industrial and Building, wide range of self-perform capabilities, and unique employee-ownership culture bring exceptional quality to our work and lead to prosperous outcomes for our clients, employee-owners and communities.
+</p>
+
+<div class="about-btn-box">
+<a href="about.html" class="about-btn">LEARN MORE</a>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+    function revealImage(){
+
+let image = document.getElementById("aboutImage");
+
+let windowHeight = window.innerHeight;
+let elementTop = image.getBoundingClientRect().top;
+
+if(elementTop < windowHeight - 100){
+image.classList.add("active");
+}
+
+}
+
+window.addEventListener("scroll", revealImage);
+window.addEventListener("load", revealImage);
+</script>
+
+
+
+    <section class="home-slider">
+        <button class="arrow left" id="prevBtn">&#10094;</button>
+
+        <div class="slider-container">
+            <div class="slider-track" id="sliderTrack">
+                <img src="images/home1.jpg" class="slide">
+                <img src="images/home2.jpg" class="slide">
+                <img src="images/home3.jpg" class="slide">
+                <img src="images/home4.jpg" class="slide">
+            </div>
+
+            <div class="dots" id="dotsContainer">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+
+        <button class="arrow right" id="nextBtn">&#10095;</button>
+    </section>
+
+    <script>
+        const track = document.getElementById("sliderTrack");
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+
+let index = 1; // 1 nunchi start chesthunnam endukante 0 position lo clone untundi
+const totalOriginalSlides = slides.length;
+let isMoving = false;
+
+// 1. Clones Create Cheyadam (Infinite Loop Kosam)
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[totalOriginalSlides - 1].cloneNode(true);
+
+// Clones ni track ki add cheyadam
+track.appendChild(firstClone); // 4th tharvatha 1st copy
+track.insertBefore(lastClone, slides[0]); // 1st kante mundu 4th copy
+
+// Initial Position (Real first slide ki set cheyadam)
+track.style.transform = `translateX(-${index * 100}%)`;
+
+function updateSlider() {
+    track.style.transition = "transform 0.7s ease-in-out";
+    track.style.transform = `translateX(-${index * 100}%)`;
+    
+    // Dots highlight logic
+    let dotIndex = index - 1;
+    if (index > totalOriginalSlides) dotIndex = 0;
+    if (index < 1) dotIndex = totalOriginalSlides - 1;
+
+    dots.forEach(d => d.classList.remove("active"));
+    dots[dotIndex].classList.add("active");
+}
+
+// 2. Magic Logic: Transition end ayyaka ekkada unnamo check chestundi
+track.addEventListener('transitionend', () => {
+    // 4th tharvatha unna 1st image (clone) ki reach aithe, silent ga real 1st ki jump kottu
+    if (index >= totalOriginalSlides + 1) {
+        track.style.transition = "none";
+        index = 1;
+        track.style.transform = `translateX(-${index * 100}%)`;
+    }
+    // 1st kante mundu unna clone ki reach aithe, silent ga real 4th ki jump kottu
+    if (index <= 0) {
+        track.style.transition = "none";
+        index = totalOriginalSlides;
+        track.style.transform = `translateX(-${index * 100}%)`;
+    }
+    isMoving = false;
+});
+
+function nextSlide() {
+    if (isMoving) return;
+    isMoving = true;
+    index++;
+    updateSlider();
+}
+
+function prevSlide() {
+    if (isMoving) return;
+    isMoving = true;
+    index--;
+    updateSlider();
+}
+
+// Event Listeners
+nextBtn.addEventListener('click', () => {
+    nextSlide();
+    resetAuto();
+});
+
+prevBtn.addEventListener('click', () => {
+    prevSlide();
+    resetAuto();
+});
+
+dots.forEach((dot, i) => {
+    dot.onclick = () => {
+        if (isMoving) return;
+        index = i + 1;
+        updateSlider();
+        resetAuto();
+    };
+});
+
+// Auto Sliding
+let auto = setInterval(nextSlide, 4000);
+
+function resetAuto() {
+    clearInterval(auto);
+    auto = setInterval(nextSlide, 4000);
+}
+    </script>
+
+
+
+
+<section class="services-section">
+
+<h2 class="services-title">OUR SERVICES</h2>
+
+<div class="services-container">
+
+<div class="service-card">
+<img src="images/home1.jpg" alt="">
+<h3>Independent House</h3>
+</div>
+
+<div class="service-card">
+<img src="images/home4.jpg" alt="">
+<h3>Apartments</h3>
+</div>
+
+<div class="service-card">
+<img src="images/home2.jpg" alt="">
+<h3>Interior Designs</h3>
+</div>
+
+<div class="service-card">
+<img src="images/home3.jpg" alt="">
+<h3>Civil Works</h3>
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="pr-gallery-section">
+    <h2 class="pr-gallery-title">IMAGE GALLERY</h2>
+
+    <div class="pr-gallery-wrapper">
+        <button class="pr-gallery-arrow" id="btnPrev">&#10094;</button>
+
+        <div class="pr-gallery-container">
+            <div class="pr-gallery-track" id="mainTrack">
+                <img src="images/g1.png" class="pr-gallery-img">
+                <img src="images/g2.png" class="pr-gallery-img">
+                <img src="images/g3.png" class="pr-gallery-img">
+                <img src="images/g4.png" class="pr-gallery-img">
+                <img src="images/g5.png" class="pr-gallery-img">
+                <img src="images/g6.png" class="pr-gallery-img">
+                <img src="images/g7.png" class="pr-gallery-img">
+                <img src="images/g8.png" class="pr-gallery-img">
+            </div>
+        </div>
+
+        <button class="pr-gallery-arrow" id="btnNext">&#10095;</button>
+    </div>
+
+    <div class="pr-dots-container" id="dotsWrapper"></div>
+</section>
+
+<script>
+(function() {
+    const track = document.getElementById("mainTrack");
+    const imgs = Array.from(track.children);
+    const dotsArea = document.getElementById("dotsWrapper");
+    const btnNext = document.getElementById("btnNext");
+    const btnPrev = document.getElementById("btnPrev");
+    
+    const gap = 260; // Width + Margin
+    const count = imgs.length;
+    let currIdx = count; 
+    let moving = false;
+
+    // Clone all images for the loop
+    imgs.forEach(img => {
+        track.appendChild(img.cloneNode(true));
+        track.insertBefore(img.cloneNode(true), track.firstChild);
+    });
+
+    // Generate Dots
+    for (let i = 0; i < count; i++) {
+        const d = document.createElement("span");
+        d.className = "pr-dot" + (i === 0 ? " active" : "");
+        dotsArea.appendChild(d);
+        d.onclick = () => {
+            if (moving) return;
+            currIdx = i + count;
+            slide();
+        };
+    }
+    const allDots = document.querySelectorAll(".pr-dot");
+
+    // Start Position
+    track.style.transform = `translateX(-${currIdx * gap}px)`;
+
+    function slide() {
+        moving = true;
+        track.style.transition = "transform 0.5s cubic-bezier(0.45, 0.05, 0.55, 0.95)";
+        track.style.transform = `translateX(-${currIdx * gap}px)`;
+        updateDots();
+    }
+
+    function updateDots() {
+        let dIdx = (currIdx - count) % count;
+        if (dIdx < 0) dIdx = count + dIdx;
+        allDots.forEach((d, i) => d.classList.toggle("active", i === dIdx));
+    }
+
+    track.addEventListener('transitionend', () => {
+        moving = false;
+        // Snap logic
+        if (currIdx >= count * 2) {
+            track.style.transition = "none";
+            currIdx = count;
+            track.style.transform = `translateX(-${currIdx * gap}px)`;
+        } else if (currIdx < count) {
+            track.style.transition = "none";
+            currIdx = (count * 2) - 1;
+            track.style.transform = `translateX(-${currIdx * gap}px)`;
+        }
+    });
+
+    btnNext.onclick = () => { if (!moving) { currIdx++; slide(); } };
+    btnPrev.onclick = () => { if (!moving) { currIdx--; slide(); } };
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="cl-section">
+    <h2 class="cl-title">OUR CLIENTS</h2>
+
+    <div class="cl-wrapper">
+        <button class="cl-arrow" id="clPrev">&#10094;</button>
+
+        <div class="cl-container">
+            <div class="cl-track" id="clTrack">
+                <img src="images/c1.png" class="cl-img">
+                <img src="images/c2.png" class="cl-img">
+                <img src="images/c3.png" class="cl-img">
+                <img src="images/c4.png" class="cl-img">
+            </div>
+        </div>
+
+        <button class="cl-arrow" id="clNext">&#10095;</button>
+    </div>
+
+    <div class="cl-dots-container" id="clDots"></div>
+</section>
+
+<script>
+(function() {
+    const track = document.getElementById("clTrack");
+    const imgs = Array.from(track.children);
+    const dotsArea = document.getElementById("clDots");
+    const clContainer = document.querySelector(".cl-container"); // Hover detect cheyadaniki
+    
+    const gap = 260; 
+    const count = imgs.length;
+    let index = count; 
+    let moving = false;
+    let autoSlideInterval; // Interval store cheyadaniki
+
+    // Infinite Clones
+    imgs.forEach(img => {
+        track.appendChild(img.cloneNode(true));
+        track.insertBefore(img.cloneNode(true), track.firstChild);
+    });
+
+    // Dots Generation
+    for (let i = 0; i < count; i++) {
+        const dot = document.createElement("span");
+        dot.className = "cl-dot" + (i === 0 ? " active" : "");
+        dotsArea.appendChild(dot);
+        dot.onclick = () => {
+            if (moving) return;
+            index = i + count;
+            slide();
+            resetAutoSlide(); // Manual ga click chesinappudu timer reset avvali
+        };
+    }
+    const dots = document.querySelectorAll(".cl-dot");
+
+    track.style.transform = `translateX(-${index * gap}px)`;
+
+    function slide() {
+        moving = true;
+        track.style.transition = "transform 0.5s ease-in-out";
+        track.style.transform = `translateX(-${index * gap}px)`;
+        
+        let dIdx = (index - count) % count;
+        if (dIdx < 0) dIdx = count + dIdx;
+        dots.forEach((d, i) => d.classList.toggle("active", i === dIdx));
+    }
+
+    track.addEventListener('transitionend', () => {
+        moving = false;
+        if (index >= count * 2) {
+            track.style.transition = "none";
+            index = count;
+            track.style.transform = `translateX(-${index * gap}px)`;
+        } else if (index < count) {
+            track.style.transition = "none";
+            index = (count * 2) - 1;
+            track.style.transform = `translateX(-${index * gap}px)`;
+        }
+    });
+
+    // Automatic Slide Logic
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            if (!moving) {
+                index++;
+                slide();
+            }
+        }, 3000); // Prathi 3 seconds ki slide avthundi
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    function resetAutoSlide() {
+        stopAutoSlide();
+        startAutoSlide();
+    }
+
+    // Start auto-slide initially
+    startAutoSlide();
+
+    // Pause on hover
+    clContainer.onmouseenter = stopAutoSlide;
+    clContainer.onmouseleave = startAutoSlide;
+
+    // Button Controls
+    document.getElementById("clNext").onclick = () => { 
+        if(!moving) { index++; slide(); resetAutoSlide(); } 
+    };
+    document.getElementById("clPrev").onclick = () => { 
+        if(!moving) { index--; slide(); resetAutoSlide(); } 
+    };
+})();
+</script>
+
+
+
+
+
+
+
+
+<footer class="footer">
+
+<div class="footer-main">
+
+<!-- LEFT LINKS -->
+
+<div class="footer-links">
+
+<h3>IMPORTANT LINKS</h3>
+
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li><a href="about.html">ABOUT US</a></li>
+<li><a href="services.html">SERVICES</a></li>
+<li><a href="contact.html">CONTACT US</a></li>
+</ul>
+
+</div>
+
+
+<!-- RIGHT CARDS -->
+
+<div class="footer-cards">
+
+<div class="footer-card">
+
+<div class="icon">
+<i class="fas fa-envelope"></i>
+</div>
+
+<h4>Info@kkcons.com</h4>
+
+<p>We reply within 24 hours</p>
+
+</div>
+
+
+<div class="footer-card">
+
+<div class="icon">
+<i class="fas fa-phone"></i>
+</div>
+
+<h4>Have any questions ?</h4>
+
+<p>+91 9666883345</p>
+
+</div>
+
+<div class="footer-card">
+
+<div class="icon">
+<i class="fas fa-map-marker-alt"></i>
+</div>
+
+<h4>Address</h4>
+
+<p>Hno.19-292, YSR colony, Badangpet, Hyderabad.</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- COPYRIGHT -->
+
+<div class="footer-bottom">
+
+<p>
+© All Copyrights Reserved KK Constructions 2024 |
+Designed By <span>nfoSoft Innovations</span>
+</p>
+
+</div>
+
+</footer>
+
+
+
+
+
+
+<div class="fl-contact-wrapper">
+    <div class="fl-item fl-phone">
+        <span class="fl-label">Call Us</span>
+        <a href="tel:+919666883345" class="fl-icon">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+
+    <div class="fl-item fl-whatsapp">
+        <span class="fl-label">WhatsApp Us</span>
+        <a href="https://wa.me/919666883345" target="_blank" class="fl-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+</div>
