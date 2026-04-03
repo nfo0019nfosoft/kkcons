@@ -259,24 +259,51 @@ transform:translateY(0);
 }
 
 /* MOBILE */
-
 @media(max-width:768px){
 
-.independent-container{
-flex-direction:column;
-text-align:center;
+.independent-section{
+    padding:30px 20px;
 }
 
-.independent-text p{
-margin:auto;
+.independent-container{
+    flex-direction:column;
+    align-items:center;
+    text-align:left; /* ❗ center remove */
+    gap:20px;
+}
+
+/* TEXT FIX */
+.independent-text{
+    width:100%;
 }
 
 .independent-text h1{
-font-size:36px;
+    font-size:28px;
+    line-height:1.3;
 }
 
 .independent-text h3{
-font-size:20px;
+    font-size:18px;
+}
+
+.independent-text p{
+    text-align:justify; /* 🔥 main fix */
+    margin:0;
+    max-width:100%;
+}
+
+/* IMAGE FIX */
+.independent-image{
+    width:100%;
+    min-width:100%;
+    transform:none; /* animation issue avoid */
+    opacity:1;
+}
+
+.independent-image img{
+    width:100%;
+    height:auto;
+    object-fit:contain; /* 🔥 no crop */
 }
 
 }
@@ -377,28 +404,54 @@ transform:translateX(0);
 }
 
 /* MOBILE */
-
 @media(max-width:768px){
 
-.apartment-container{
-flex-direction:column;
-text-align:center;
+.apartment-section{
+    padding:30px 20px;
 }
 
-.apartment-text p{
-margin:auto;
+.apartment-container{
+    flex-direction:column;
+    align-items:center;
+    text-align:left; /* ❗ center remove */
+    gap:20px;
+}
+
+/* TEXT */
+.apartment-text{
+    width:100%;
 }
 
 .apartment-text h1{
-font-size:36px;
+    font-size:28px;
+    line-height:1.3;
 }
 
 .apartment-text h3{
-font-size:20px;
+    font-size:18px;
+}
+
+.apartment-text p{
+    text-align:justify; /* 🔥 main fix */
+    margin:0;
+    max-width:100%;
+}
+
+/* IMAGE */
+.apartment-image{
+    width:100%;
+    min-width:100%;
+    transform:none;
+    opacity:1;
+}
+
+.apartment-image img{
+    width:100%;
+    height:auto;
+    object-fit:contain; /* 🔥 no crop */
 }
 
 }
-
 
 
 
@@ -493,16 +546,53 @@ transform:translateX(0);
 }
 
 /* MOBILE */
-
 @media(max-width:768px){
 
+.interior-section{
+    padding:30px 20px;
+}
+
 .interior-container{
-flex-direction:column;
-text-align:center;
+    flex-direction:column;
+    align-items:center;
+    text-align:left; /* ❗ center remove */
+    gap:20px;
+}
+
+/* TEXT */
+.interior-text{
+    width:100%;
+}
+
+.interior-text h1{
+    font-size:28px;
+    line-height:1.3;
+}
+
+.interior-text h3{
+    font-size:18px;
 }
 
 .interior-text p{
-margin:auto;
+    text-align:justify; /* 🔥 main fix */
+    margin:0;
+    max-width:100%;
+}
+
+/* IMAGE FIX */
+.interior-image{
+    width:100%;
+    min-width:100%;
+    
+    /* ❗ animation disable for mobile */
+    transform:none;
+    opacity:1;
+}
+
+.interior-image img{
+    width:100%;
+    height:auto;
+    object-fit:contain; /* 🔥 no cut */
 }
 
 }
@@ -599,24 +689,53 @@ transform:translateY(0);
 }
 
 /* MOBILE */
-
 @media(max-width:768px){
 
-.civil-container{
-flex-direction:column;
-text-align:center;
+.civil-section{
+    padding:30px 20px;
 }
 
-.civil-text p{
-margin:auto;
+.civil-container{
+    flex-direction:column;
+    align-items:center;
+    text-align:left; /* ❗ center remove */
+    gap:20px;
+}
+
+/* TEXT */
+.civil-text{
+    width:100%;
 }
 
 .civil-text h1{
-font-size:34px;
+    font-size:28px;
+    line-height:1.3;
 }
 
 .civil-text h3{
-font-size:20px;
+    font-size:18px;
+}
+
+.civil-text p{
+    text-align:justify; /* 🔥 main fix */
+    margin:0;
+    max-width:100%;
+}
+
+/* IMAGE FIX */
+.civil-image{
+    width:100%;
+    min-width:100%;
+
+    /* ❗ animation remove for mobile */
+    transform:none;
+    opacity:1;
+}
+
+.civil-image img{
+    width:100%;
+    height:auto;
+    object-fit:contain; /* 🔥 no cut */
 }
 
 }
@@ -743,45 +862,33 @@ font-size:20px;
     font-weight: 600;
 }
 
-/* --- MOBILE RESPONSIVE --- */
-@media (max-width: 1024px) {
-    .footer-cards {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .footer-card {
-        min-width: 45%; /* Tablets lo 2 cards side by side */
-    }
-}
-
 @media (max-width: 768px) {
     .footer-main {
         flex-direction: column;
-        padding: 40px 20px;
+        padding: 30px 20px; /* koncham reduce chesam */
         align-items: flex-start;
         text-align: left;
+        gap: 10px; /* sections madhya gap control */
+    }
+
+    .footer-links {
+        margin-bottom: 10px; /* earlier 30px → ippudu reduce */
     }
 
     .footer-cards {
         width: 100%;
         flex-direction: column;
-        gap: 15px;
+        gap: 10px; /* cards madhya gap kuda taggincham */
+        margin-top: 0; /* extra gap remove */
     }
 
     .footer-card {
         width: 100%;
-        height: auto; /* Mobile lo content ni batti height adjust avthundi */
-        min-height: 140px;
+        height: auto;
+        min-height: 120px; /* koncham compact */
         min-width: 100%;
     }
-
-    .footer-links {
-        margin-bottom: 30px;
-    }
 }
-
-
-
 
 
 

@@ -269,6 +269,7 @@ font-size:36px;
 
 .about-content p{
 font-size:16px;
+text-align: justify;
 }
 
 }
@@ -339,18 +340,44 @@ right:-30px;   /* image right side cut */
 
 @media (max-width:900px){
 
-.vision-container{
-flex-direction:column;
-align-items:center;
-text-align:center;
+.vision-section{
+    padding:30px 20px;
 }
 
+.vision-container{
+    flex-direction:column;
+    align-items:center;
+    text-align:left; /* ❗ center remove */
+    gap:20px;
+}
+
+/* TEXT FIX */
 .vision-text{
-max-width:700px;
+    max-width:100%;
 }
 
 .vision-text h2{
-font-size:36px;
+    font-size:28px;
+    text-align:left;
+}
+
+.vision-text p{
+    text-align:justify; /* 🔥 main fix */
+    margin:0;
+}
+
+/* IMAGE FIX */
+.vision-image{
+    width:100%;
+    overflow:hidden;
+}
+
+.vision-image img{
+    width:100%;       /* ❗ 110% remove */
+    right:0;          /* ❗ remove shift */
+    position:static;  /* ❗ reset */
+    height:auto;
+    object-fit:contain; /* 🔥 no cut */
 }
 
 }
@@ -483,43 +510,33 @@ font-size:36px;
     font-weight: 600;
 }
 
-/* --- MOBILE RESPONSIVE --- */
-@media (max-width: 1024px) {
-    .footer-cards {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .footer-card {
-        min-width: 45%; /* Tablets lo 2 cards side by side */
-    }
-}
-
 @media (max-width: 768px) {
     .footer-main {
         flex-direction: column;
-        padding: 40px 20px;
+        padding: 30px 20px; /* koncham reduce chesam */
         align-items: flex-start;
         text-align: left;
+        gap: 10px; /* sections madhya gap control */
+    }
+
+    .footer-links {
+        margin-bottom: 10px; /* earlier 30px → ippudu reduce */
     }
 
     .footer-cards {
         width: 100%;
         flex-direction: column;
-        gap: 15px;
+        gap: 10px; /* cards madhya gap kuda taggincham */
+        margin-top: 0; /* extra gap remove */
     }
 
     .footer-card {
         width: 100%;
-        height: auto; /* Mobile lo content ni batti height adjust avthundi */
-        min-height: 140px;
+        height: auto;
+        min-height: 120px; /* koncham compact */
         min-width: 100%;
     }
-
-    .footer-links {
-        margin-bottom: 30px;
-    }
 }
-
 
 
 

@@ -274,34 +274,32 @@ background:#0b6aa3;
 }
 
 /* MOBILE */
-
 @media(max-width:768px){
 
-.contact-section{
-padding:40px 20px;
-}
-
 .contact-container{
-flex-direction:column;
-gap:40px;
+    flex-direction: column;
+    gap: 25px;
 }
 
-.contact-info{
-width:100%;
-}
-
-.contact-form{
-width:100%;
-}
-
+/* Title center & clean */
 .contact-title{
-font-size:28px;
+    font-size: 26px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* Remove fixed height issue */
+.contact-form{
+    width: 100%;
+    height: auto;
+}
+
+/* Cards full width */
+.contact-info{
+    width: 100%;
 }
 
 }
-
-
-
 
 
 
